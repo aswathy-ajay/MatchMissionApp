@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #257ac9 0.0%, #ffffff 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.IntroController">
+  <center>
+    <StackPane fx:id="mainStackPane" prefHeight="550.0" prefWidth="571.0" BorderPane.alignment="CENTER">
+      <children>
+        <Circle fill="#ff8800" radius="136.0" stroke="#ff9900" strokeType="INSIDE" />
+        <Button fx:id="mainButton" mnemonicParsing="false" onAction="#gamePage" prefHeight="271.0" prefWidth="277.0" style="-fx-background-color: #ff990000; -fx-border-color: #ff990000; -fx-font-family: Segoe UI; -fx-font-size: 25;" text="MATCH MISSION" textAlignment="CENTER">
+          <font>
+            <Font name="Bodoni MT" size="96.0" />
+          </font>
+        </Button>
+      </children>
+    </StackPane>
+  </center>
+</BorderPane>
