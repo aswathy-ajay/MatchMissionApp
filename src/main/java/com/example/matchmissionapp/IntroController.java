@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -29,7 +30,14 @@ public class IntroController {
   private Circle circleA;
   @FXML
   private BorderPane mainBorderPane;
-
+  @FXML
+  private ImageView imageA;
+  @FXML
+  private ImageView imageB;
+  @FXML
+  private ImageView imageC;
+  @FXML
+  private ImageView imageD;
 //  @FXML
 //  protected void onHelloButtonClick() {
 //    welcomeText.setText("Test 1");
