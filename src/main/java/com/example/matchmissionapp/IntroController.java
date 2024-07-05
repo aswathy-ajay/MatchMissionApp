@@ -38,15 +38,20 @@ public class IntroController {
   private ImageView imageC;
   @FXML
   private ImageView imageD;
-//  @FXML
-//  protected void onHelloButtonClick() {
-//    welcomeText.setText("Test 1");
-//  }
+  @FXML
+  private ImageView imageE;
+  @FXML
+  private ImageView imageF;
+  @FXML
+  private ImageView imageG;
+  @FXML
+  private ImageView imageH;
+  @FXML
+  private ImageView imageSettings;
 
   @FXML
   public void initialize() {
-//    circleA.setRadius(150.0);
-//    introAnchorPane.setStyle("-fx-background-color: #f0f0f0;");
+
   }
 
   @FXML
@@ -61,6 +66,22 @@ public class IntroController {
     Stage stage = (Stage) mainBorderPane.getScene().getWindow();
     stage.setScene(new Scene(gameParent));
     stage.show();
+
+  }
+
+  @FXML
+  public void settingsPage() throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
+    Parent gameParent = loader.load();
+
+    // Access the GameController and its methods
+    SettingsController settingsController = loader.getController();
+
+    // Get the current stage and set the new scene
+    Stage stage = (Stage) mainBorderPane.getScene().getWindow();
+    stage.setScene(new Scene(gameParent));
+    stage.show();
+
   }
 
 }

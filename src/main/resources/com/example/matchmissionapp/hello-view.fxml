@@ -9,44 +9,48 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.IntroController">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.IntroController">
 
   <top>
   <BorderPane prefHeight="223.0" prefWidth="1057.0" BorderPane.alignment="CENTER">
   <left>
-    <ImageView fitHeight="277.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+    <ImageView fx:id="imageA" fitHeight="277.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
       <image>
         <Image url="@../../../images/hospital.png" />
       </image>
     </ImageView>
   </left>
          <center>
-            <ImageView fitHeight="269.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageB" fitHeight="269.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../images/puzzle.png" />
                </image>
                <BorderPane.margin>
-                  <Insets left="100.0" right="50.0" />
+                  <Insets left="50.0" right="50.0" />
                </BorderPane.margin>
             </ImageView>
          </center>
          <right>
             <VBox prefHeight="277.0" prefWidth="215.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="182.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/settings.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="250.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imageSettings" fitHeight="69.0" fitWidth="63.0" onMouseClicked="#settingsPage" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/settings.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets bottom="10.0" left="150.0" top="10.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <ImageView fx:id="imageC" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/tutoring.png" />
                      </image>
                      <VBox.margin>
-                        <Insets bottom="50.0" left="50.0" />
+                        <Insets bottom="100.0" right="120.0" />
                      </VBox.margin>
                   </ImageView>
                </children>
@@ -55,12 +59,15 @@
   </BorderPane>
   </top>
   <center>
-    <StackPane fx:id="mainStackPane" prefHeight="251.0" prefWidth="1057.0" BorderPane.alignment="CENTER">
+    <StackPane fx:id="mainStackPane" prefHeight="114.0" prefWidth="323.0" BorderPane.alignment="CENTER">
          <children>
-        <Button fx:id="mainButton" mnemonicParsing="false" onAction="#gamePage" prefHeight="242.0" prefWidth="242.0" style="-fx-background-color: #ff990000; -fx-border-color: #ff990000; -fx-font-family: Segoe UI; -fx-font-size: 25;" text="MATCH MISSION" textAlignment="CENTER">
+        <Button fx:id="mainButton" mnemonicParsing="false" onAction="#gamePage" prefHeight="171.0" prefWidth="369.0" style="-fx-background-color: #ff990000; -fx-border-color: #000000; -fx-font-family: Times New Roman; -fx-font-size: 40;" text="MATCH MISSION" textAlignment="CENTER">
           <font>
-            <Font name="Times New Roman" size="96.0" />
+            <Font name="HP Simplified" size="96.0" />
           </font>
+               <StackPane.margin>
+                  <Insets bottom="50.0" />
+               </StackPane.margin>
         </Button>
          </children>
     </StackPane>
@@ -68,14 +75,14 @@
    <bottom>
       <BorderPane prefHeight="275.0" prefWidth="1057.0" BorderPane.alignment="CENTER">
          <left>
-            <ImageView fitHeight="196.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageF" fitHeight="196.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../images/school.png" />
                </image>
             </ImageView>
          </left>
          <right>
-            <ImageView fitHeight="172.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageH" fitHeight="172.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../images/camp.jpg" />
                </image>
@@ -85,7 +92,7 @@
             </ImageView>
          </right>
          <center>
-            <ImageView fitHeight="194.0" fitWidth="304.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageG" fitHeight="194.0" fitWidth="304.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../images/mentoring.png" />
                </image>
@@ -96,7 +103,7 @@
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <ImageView fitHeight="223.0" fitWidth="652.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageD" fitHeight="223.0" fitWidth="652.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../images/kidney.png" />
                </image>
@@ -107,12 +114,12 @@
    <right>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <ImageView fitHeight="303.0" fitWidth="901.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageE" fitHeight="303.0" fitWidth="901.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../images/wedding.png" />
                </image>
                <BorderPane.margin>
-                  <Insets right="50.0" />
+                  <Insets bottom="50.0" right="50.0" />
                </BorderPane.margin>
             </ImageView>
          </center>
