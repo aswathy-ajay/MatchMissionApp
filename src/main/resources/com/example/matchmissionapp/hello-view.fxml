@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.IntroController">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.MenuController">
 
   <top>
   <BorderPane prefHeight="223.0" prefWidth="1057.0" BorderPane.alignment="CENTER">

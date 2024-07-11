@@ -10,7 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.SettingsController">
+<BorderPane fx:id="settingsBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+  prefHeight="800.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);"
+  xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.SettingsController" onKeyPressed="#handleKeyPressed">
   <top>
     <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
       <children>

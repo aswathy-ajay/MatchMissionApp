@@ -2,86 +2,80 @@ package com.example.matchmissionapp;
 
 
 import java.io.IOException;
+import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Circle;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class IntroController {
+  private static final Logger logger = Logger.getLogger(IntroController.class.getName());
+  private MediaPlayer mediaPlayer;
+  @FXML
+  private BorderPane introBorderPane;
+  @FXML
+  private ImageView introImage;
 
-//  @FXML
-//  private Label welcomeText;
-
-  @FXML
-  private Button mainButton;
-  //  @FXML
-//  private BorderPane introBorderPane;
-  @FXML
-  private StackPane mainStackPane;
-  @FXML
-  private Circle circleA;
-  @FXML
-  private BorderPane mainBorderPane;
-  @FXML
-  private ImageView imageA;
-  @FXML
-  private ImageView imageB;
-  @FXML
-  private ImageView imageC;
-  @FXML
-  private ImageView imageD;
-  @FXML
-  private ImageView imageE;
-  @FXML
-  private ImageView imageF;
-  @FXML
-  private ImageView imageG;
-  @FXML
-  private ImageView imageH;
-  @FXML
-  private ImageView imageSettings;
-
-  @FXML
   public void initialize() {
+    logger.info("Playing intro background music");
+    startBackgroundMusic();
+  }
+  private void startBackgroundMusic() {
+    String mediaPath = getClass().getResource("/sounds/intro.mp3").toString();
+    Media media = new Media(mediaPath);
+    mediaPlayer = new MediaPlayer(media);
+
+    mediaPlayer.setOnReady(() -> {
+      Duration mediaDuration = media.getDuration();
+      startTransition(mediaDuration);
+      mediaPlayer.play();
+    });
+  }
+
+  private void startTransition(Duration duration){
+    FadeTransition transitionObject = new FadeTransition(duration,introBorderPane);
+    transitionObject.setFromValue(0.0);
+    transitionObject.setToValue(2.0);
+    transitionObject.setFromValue(2.0);
+    transitionObject.setToValue(0.0);
+    transitionObject.play();
+
+    transitionObject.setOnFinished(event -> {
+      try {
+        mediaPlayer.stop();
+        startMenu();
+      } catch (IOException e) {
+        logger.severe("Failed to navigate to menu page: " + e.getMessage());
+        e.printStackTrace();
+      }
+    });
+    transitionObject.play();
 
   }
 
-  @FXML
-  public void gamePage() throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-    Parent gameParent = loader.load();
+  public void startMenu() throws IOException {
+//    mediaPlayer.stop();
+    logger.info("Playing background music");
+    double currentVolume = MusicManager.getVolume();
+    logger.info("Current volume is: " + currentVolume);
+    String mediaPath = getClass().getResource("/music/background-music.mp3").toString();
+    MusicManager.initialize(mediaPath);
+    logger.info("Navigating to the menu page...");
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+    Parent introParent = loader.load();
 
-    // Access the GameController and its methods
-    GameController gameController = loader.getController();
 
     // Get the current stage and set the new scene
-    Stage stage = (Stage) mainBorderPane.getScene().getWindow();
-    stage.setScene(new Scene(gameParent));
+    Stage stage = (Stage) introBorderPane.getScene().getWindow();
+    stage.setScene(new Scene(introParent));
     stage.show();
-
   }
-
-  @FXML
-  public void settingsPage() throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
-    Parent gameParent = loader.load();
-
-    // Access the GameController and its methods
-    SettingsController settingsController = loader.getController();
-
-    // Get the current stage and set the new scene
-    Stage stage = (Stage) mainBorderPane.getScene().getWindow();
-    stage.setScene(new Scene(gameParent));
-    stage.show();
-
-  }
-
 }
