@@ -25,8 +25,9 @@ public class GameController {
 
   @FXML
   private TextFlow textFlowA;
-  @FXML
-  private TextFlow textFlowB;
+
+  private IntroController introController;
+
 
   Font customFont;
   @FXML
@@ -42,7 +43,7 @@ public class GameController {
     displayTextWordByWord("Ever wondered how schools find the right students or how dating sites match people? " + "\n"
         + "The secret lies in the Matching Algorithm! " + "\n"
         + "Today, we’ll explore how matching algorithms work and discover their powerful impact. " + "\n"
-        + "Let's start with a simple example. "
+        + "Let's start with a quick introduction to matching problem. "
         );
   }
 
@@ -51,21 +52,21 @@ public class GameController {
     logger.info("HANDLE IS WORKING");
     if (event.getCode() == KeyCode.ESCAPE) {
       logger.info("ESC key pressed, navigating back to the menu...");
-      startMenu();
+      introController.startMenu();
     }
   }
 
-  @FXML
-  public void startMenu() throws IOException {
-    logger.info("Navigating back to the menu page...");
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-    Parent menuParent = loader.load();
-
-    // Get the current stage and set the new scene
-    Stage stage = (Stage) gameBorderPane.getScene().getWindow();
-    stage.setScene(new Scene(menuParent));
-    stage.show();
-  }
+//  @FXML
+//  public void startMenu() throws IOException {
+//    logger.info("Navigating back to the menu page...");
+//    FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+//    Parent menuParent = loader.load();
+//
+//    // Get the current stage and set the new scene
+//    Stage stage = (Stage) gameBorderPane.getScene().getWindow();
+//    stage.setScene(new Scene(menuParent));
+//    stage.show();
+//  }
 
   private void displayTextWordByWord(String message) {
     String[] words = message.split(" ");

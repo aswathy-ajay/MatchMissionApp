@@ -1,12 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane fx:id="level1BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 0.0%, #00b1cc 0.0%, #0084ff00 100.0%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.matchmissionapp.Level1">
-
-
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextFlow fx:id="textFlowB" prefHeight="100.0" prefWidth="1058.0">
+               <HBox.margin>
+                  <Insets left="50.0" right="50.0" top="50.0" />
+               </HBox.margin>
+            </TextFlow>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="elsaImage" fitHeight="239.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/elsa.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="towerImage" fitHeight="240.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/tower.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="500.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="rapunzelImage" fitHeight="246.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/rapunzel.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="50.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="castleImage" fitHeight="242.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/frozencastle.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="450.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
