@@ -24,7 +24,6 @@ public class HelloApplication extends Application {
     stage.setTitle("MatchMission");
     stage.setScene(scene);
     stage.show();
-
   }
 
 
