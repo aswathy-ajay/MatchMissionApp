@@ -26,8 +26,7 @@ public class GameController {
   @FXML
   private TextFlow textFlowA;
 
-  private IntroController introController;
-
+  IntroController introController;
 
   Font customFont;
   @FXML
@@ -38,6 +37,7 @@ public class GameController {
     gameBorderPane.setFocusTraversable(true);
     gameBorderPane.requestFocus();
 
+    introController = new IntroController();
     customFont = Font.loadFont(getClass().getResourceAsStream("/style/NotoSerif-Regular.ttf"), 25);
     // Display the text word by word
     displayTextWordByWord("Ever wondered how schools find the right students or how dating sites match people? " + "\n"
@@ -56,17 +56,6 @@ public class GameController {
     }
   }
 
-//  @FXML
-//  public void startMenu() throws IOException {
-//    logger.info("Navigating back to the menu page...");
-//    FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-//    Parent menuParent = loader.load();
-//
-//    // Get the current stage and set the new scene
-//    Stage stage = (Stage) gameBorderPane.getScene().getWindow();
-//    stage.setScene(new Scene(menuParent));
-//    stage.show();
-//  }
 
   private void displayTextWordByWord(String message) {
     String[] words = message.split(" ");
@@ -81,6 +70,8 @@ public class GameController {
     }
     timeline.play();
   }
+
+
 
   @FXML
   private void nextScreen() throws IOException {

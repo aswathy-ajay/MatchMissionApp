@@ -6,6 +6,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.geometry.Bounds;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -34,6 +35,7 @@ public class Level1 {
   private ImageView rapunzelImage;
   @FXML
   private ImageView castleImage;
+  IntroController introController;
 
   @FXML
   public void initialize() {
@@ -43,13 +45,12 @@ public class Level1 {
     level1BorderPane.setFocusTraversable(true);
     level1BorderPane.requestFocus();
 
-    customFont = Font.loadFont(getClass().getResourceAsStream("/style/NotoSerif-Regular.ttf"), 25);
-//    displayTextWordByWord("In any matching algorithm, we have participants with their own preferences, and our goal is to create a stable one-to-one match. " + "\n"
-//        + "Let’s dive into a fun example: " + "\n"
-//        + "Imagine Elsa from Frozen and Rapunzel from Tangled. They each have two choices: the magical Frozen Castle or the vibrant tower from Tangled." + "\n" + "The challenge? To pair them with their preferred location. " + "\n"
-//        + "Elsa dreams of the castle, while Rapunzel is enchanted by the tower. Let's match them to their choices! "
-//    );
-    displayTextWordByWord("Blah blah");
+    introController = new IntroController();
+    customFont = Font.loadFont(getClass().getResourceAsStream("/style/NotoSerif-Regular.ttf"), 20);
+    displayTextWordByWord("In any matching algorithm, participants have preferences, and our goal is to create a stable one-to-one match. " + "\n"
+        + "Let's dive into a fun example: Elsa from Frozen and Rapunzel from Tangled each have two choices—the Frozen Castle and the Tangled Tower. Elsa dreams of the castle, while Rapunzel is enchanted by the tower. Let's match them to their preferred locations! "
+    );
+
   }
 
   private void displayTextWordByWord(String message) {
@@ -69,47 +70,53 @@ public class Level1 {
   }
 
   private void animateImages() {
+    logger.info("Starting animation");
     // Ensure layout is properly updated before accessing positions
+    level1BorderPane.applyCss();
     level1BorderPane.layout();
 
-    // Get current positions of the images
-    double elsaX = elsaImage.getLayoutX();
-    double elsaY = elsaImage.getLayoutY();
-    double rapunzelX = rapunzelImage.getLayoutX();
-    double rapunzelY = rapunzelImage.getLayoutY();
+    // Convert local coordinates to scene coordinates
+    Bounds elsaBounds = elsaImage.localToScene(elsaImage.getBoundsInLocal());
+    Bounds rapunzelBounds = rapunzelImage.localToScene(rapunzelImage.getBoundsInLocal());
+    Bounds towerBounds = towerImage.localToScene(towerImage.getBoundsInLocal());
+    Bounds castleBounds = castleImage.localToScene(castleImage.getBoundsInLocal());
 
-    double castleX = castleImage.getLayoutX();
-    double castleY = castleImage.getLayoutY();
+    // Get current positions of the images
+    double elsaX = elsaBounds.getMinX();
+    double elsaY = elsaBounds.getMinY();
+    double rapunzelX = rapunzelBounds.getMinX();
+    double rapunzelY = rapunzelBounds.getMinY();
+    double towerX = towerBounds.getMinX();
+    double towerY = towerBounds.getMinY();
+    double castleX = castleBounds.getMinX();
+    double castleY = castleBounds.getMinY();
 
     // Calculate target positions
     double towerTargetX = rapunzelX;
     double towerTargetY = rapunzelY;
-
-    double elsaTargetX = elsaX;
-    double elsaTargetY = elsaY;
+    double castleTargetX = elsaX;
+    double castleTargetY = elsaY;
 
     // Define animations for moving the images
     TranslateTransition towerTransition = new TranslateTransition(Duration.seconds(2), towerImage);
-    towerTransition.setToX(towerTargetX - towerImage.getLayoutX());
-    towerTransition.setToY(towerTargetY - towerImage.getLayoutY());
+    towerTransition.setToX(towerTargetX - towerX); // x direction movement
+    towerTransition.setToY(towerTargetY - towerY); // y direction movement
 
     TranslateTransition castleTransition = new TranslateTransition(Duration.seconds(2), castleImage);
-    castleTransition.setToX(elsaTargetX - castleImage.getLayoutX());
-    castleTransition.setToY(elsaTargetY - castleImage.getLayoutY());
+    castleTransition.setToX(castleTargetX - castleX); // x direction movement
+    castleTransition.setToY(castleTargetY - castleY); // y direction movement
 
     // Play the animations
     towerTransition.play();
     castleTransition.play();
   }
 
-
-
-//  @FXML
-//  private void handleKeyPressed(KeyEvent event) throws IOException {
-//    logger.info("HANDLE IS WORKING");
-//    if (event.getCode() == KeyCode.ESCAPE) {
-//      logger.info("ESC key pressed, navigating back to the menu...");
-//      introController.startMenu();
-//    }
-//  }
+  @FXML
+  private void handleKeyPressed(KeyEvent event) throws IOException {
+    logger.info("HANDLE IS WORKING");
+    if (event.getCode() == KeyCode.ESCAPE) {
+      logger.info("ESC key pressed, navigating back to the menu...");
+      introController.startMenu();
+    }
+  }
 }

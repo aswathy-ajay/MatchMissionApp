@@ -18,7 +18,7 @@ import javafx.util.Duration;
 
 public class IntroController {
   private static final Logger logger = Logger.getLogger(IntroController.class.getName());
-  private MediaPlayer mediaPlayer;
+  MediaPlayer mediaPlayer;
   @FXML
   private BorderPane introBorderPane;
   @FXML
