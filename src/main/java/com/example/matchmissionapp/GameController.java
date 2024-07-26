@@ -52,7 +52,7 @@ public class GameController {
     logger.info("HANDLE IS WORKING");
     if (event.getCode() == KeyCode.ESCAPE) {
       logger.info("ESC key pressed, navigating back to the menu...");
-      introController.startMenu();
+      introController.startMenu(gameBorderPane);
     }
   }
 
@@ -75,13 +75,6 @@ public class GameController {
 
   @FXML
   private void nextScreen() throws IOException {
-    logger.info("Navigating to the next game screen...");
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("level1.fxml"));
-    Parent menuParent = loader.load();
-
-    // Get the current stage and set the new scene
-    Stage stage = (Stage) gameBorderPane.getScene().getWindow();
-    stage.setScene(new Scene(menuParent));
-    stage.show();
+    introController.nextScreen(gameBorderPane,"level1.fxml");
   }
 }

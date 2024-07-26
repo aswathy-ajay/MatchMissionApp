@@ -53,6 +53,8 @@ public class MenuController {
   @FXML
   private ImageView imageSettings;
 
+  IntroController introController;
+
   @FXML
   public void initialize() {
     logger.info("Initialising the Introduction stage");
@@ -65,6 +67,7 @@ public class MenuController {
     startRotateTransition(imageF);
     startRotateTransition(imageG);
     startRotateTransition(imageH);
+    introController = new IntroController();
   }
 
   private void startRotateTransition(ImageView imageView) {
@@ -78,30 +81,12 @@ public class MenuController {
   @FXML
   public void gamePage() throws IOException {
     logger.info("Loading Game stage");
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-    Parent gameParent = loader.load();
-
-    // Access the GameController and its methods
-    GameController gameController = loader.getController();
-
-    // Get the current stage and set the new scene
-    Stage stage = (Stage) mainBorderPane.getScene().getWindow();
-    stage.setScene(new Scene(gameParent));
-    stage.show();
+    introController.nextScreen(mainBorderPane,"game.fxml");
   }
 
   @FXML
   public void settingsPage() throws IOException {
     logger.info("Loading Settings stage");
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
-    Parent settingsParent = loader.load();
-
-    // Access the SettingsController and its methods
-    SettingsController settingsController = loader.getController();
-
-    // Get the current stage and set the new scene
-    Stage stage = (Stage) mainBorderPane.getScene().getWindow();
-    stage.setScene(new Scene(settingsParent));
-    stage.show();
+    introController.nextScreen(mainBorderPane,"settings.fxml");
   }
 }

@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -35,6 +36,11 @@ public class Level1 {
   private ImageView rapunzelImage;
   @FXML
   private ImageView castleImage;
+
+  @FXML
+  private Button replayButton;
+  @FXML
+  private Button continueButton;
   IntroController introController;
 
   @FXML
@@ -51,6 +57,16 @@ public class Level1 {
         + "Let's dive into a fun example: Elsa from Frozen and Rapunzel from Tangled each have two choices—the Frozen Castle and the Tangled Tower. Elsa dreams of the castle, while Rapunzel is enchanted by the tower. Let's match them to their preferred locations! "
     );
 
+
+  }
+
+  @FXML
+  private void handleKeyPressed(KeyEvent event) throws IOException {
+    logger.info("HANDLE IS WORKING");
+    if (event.getCode() == KeyCode.ESCAPE) {
+      logger.info("ESC key pressed, navigating back to the menu...");
+      introController.startMenu(level1BorderPane);
+    }
   }
 
   private void displayTextWordByWord(String message) {
@@ -112,11 +128,16 @@ public class Level1 {
   }
 
   @FXML
-  private void handleKeyPressed(KeyEvent event) throws IOException {
-    logger.info("HANDLE IS WORKING");
-    if (event.getCode() == KeyCode.ESCAPE) {
-      logger.info("ESC key pressed, navigating back to the menu...");
-      introController.startMenu();
-    }
+  public void nextPage() throws IOException {
+    logger.info("Starting the harry potter question");
+    introController.nextScreen(level1BorderPane,"harry-potter.fxml");
   }
+
+  @FXML
+  public void replay() {
+    logger.info("Replaying the animation");
+    animateImages();
+  }
+
+
 }

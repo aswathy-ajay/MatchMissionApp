@@ -7,11 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.example.matchmissionapp.MusicManager;
 import java.util.logging.Logger;
-
 import java.io.IOException;
 
-public class
-HelloApplication extends Application {
+public class HelloApplication extends Application {
   private static final Logger logger = Logger.getLogger(HelloApplication.class.getName());
   private IntroController introController;
   @Override

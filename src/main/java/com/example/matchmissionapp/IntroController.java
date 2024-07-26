@@ -51,7 +51,8 @@ public class IntroController {
     transitionObject.setOnFinished(event -> {
       try {
         mediaPlayer.stop();
-        startMenu();
+        playBackgroundMusic();
+        startMenu(introBorderPane);
       } catch (IOException e) {
         logger.severe("Failed to navigate to menu page: " + e.getMessage());
         e.printStackTrace();
@@ -61,21 +62,35 @@ public class IntroController {
 
   }
 
-  public void startMenu() throws IOException {
+  public void startMenu(BorderPane borderPane) throws IOException {
 //    mediaPlayer.stop();
-    logger.info("Playing background music");
-    double currentVolume = MusicManager.getVolume();
-    logger.info("Current volume is: " + currentVolume);
-    String mediaPath = getClass().getResource("/music/background-music.mp3").toString();
-    MusicManager.initialize(mediaPath);
     logger.info("Navigating to the menu page...");
     FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
     Parent introParent = loader.load();
 
 
     // Get the current stage and set the new scene
-    Stage stage = (Stage) introBorderPane.getScene().getWindow();
+    Stage stage = (Stage) borderPane.getScene().getWindow();
     stage.setScene(new Scene(introParent));
+    stage.show();
+  }
+
+  private void playBackgroundMusic() {
+    logger.info("Playing background music");
+    double currentVolume = MusicManager.getVolume();
+    logger.info("Current volume is: " + currentVolume);
+    String mediaPath = getClass().getResource("/music/background-music.mp3").toString();
+    MusicManager.initialize(mediaPath);
+  }
+
+  public void nextScreen(BorderPane borderPane, String fxmlPage) throws IOException {
+    logger.info("Navigating to the next game screen...");
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPage));
+    Parent menuParent = loader.load();
+
+    // Get the current stage and set the new scene
+    Stage stage = (Stage) borderPane.getScene().getWindow();
+    stage.setScene(new Scene(menuParent));
     stage.show();
   }
 }
