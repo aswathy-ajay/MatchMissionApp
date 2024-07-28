@@ -61,7 +61,7 @@ public class GaleShapley {
 
       int follower_index = next_proposal[leader];  // Index of the follower that needs to be proposed to is given by the next proposal list
       int follower = leader_prefs.get(follower_index); // Getting that follower which has not been proposed to
-
+      //here add animation
       // As we completed one proposal change the index in next_proposal
       next_proposal[leader] += 1;
 

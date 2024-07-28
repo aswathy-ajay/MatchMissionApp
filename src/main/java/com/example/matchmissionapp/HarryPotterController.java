@@ -6,6 +6,7 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 public class HarryPotterController {
@@ -13,21 +14,20 @@ public class HarryPotterController {
   private BorderPane hpBorderPane;
   GaleShapley galeShapley = new GaleShapley();
   @FXML
-  private Button harryButton;
+  private ImageView harry;
   @FXML
-  private Button ronButton;
+  private ImageView ron;
   @FXML
-  private Button nevilleButton;
+  private ImageView neville;
   @FXML
-  private Button choButton;
+  private ImageView cho;
   @FXML
-  private Button hermoineButton;
+  private ImageView hermione;
   @FXML
-  private Button lunaButton;
+  private ImageView luna;
   List<List<Integer>> leadersList;
   List<List<Integer>> followersList;
-  @FXML
-  TextArea resultTextArea;
+
 
   @FXML
   public void initialize() {
@@ -53,7 +53,6 @@ public class HarryPotterController {
     for (int i = 0; i < results.length; i++) {
       resultString.append("Follower ").append(i).append(" -> Leader ").append(results[i]).append("\n");
     }
-    resultTextArea.setText(resultString.toString());
   }
 
 }
