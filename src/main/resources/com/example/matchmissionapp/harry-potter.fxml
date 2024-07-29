@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -30,7 +31,7 @@
                            <VBox.margin>
                               <Insets />
                            </VBox.margin></ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="[Hermione, Cho, Luna]">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Harry = [Hermione, Cho, Luna]">
                            <font>
                               <Font name="Georgia Bold" size="18.0" />
                            </font>
@@ -39,7 +40,7 @@
                   </VBox>
                   <VBox prefHeight="167.0" prefWidth="149.0">
                      <HBox.margin>
-                        <Insets left="250.0" />
+                        <Insets left="170.0" />
                      </HBox.margin>
                      <children>
                         <ImageView fx:id="cho" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -49,7 +50,7 @@
                            <VBox.margin>
                               <Insets />
                            </VBox.margin></ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="[Neville, Ron, Harry]">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cho = [Neville, Ron, Harry]">
                            <font>
                               <Font name="Georgia Bold" size="18.0" />
                            </font>
@@ -69,7 +70,7 @@
                            <image>
                               <Image url="@../../../images/ron.jpg" />
                            </image></ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="[Cho, Hermione, Luna]">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ron = [Cho, Hermione, Luna]">
                            <font>
                               <Font name="Georgia Bold" size="18.0" />
                            </font>
@@ -88,7 +89,7 @@
                            <image>
                               <Image url="@../../../images/hermione.jpg" />
                            </image></ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="[Ron, Harry, Neville]">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hermione = [Ron, Harry, Neville]">
                            <font>
                               <Font name="Georgia Bold" size="18.0" />
                            </font>
@@ -111,7 +112,7 @@
                            <image>
                               <Image url="@../../../images/neville.jpeg" />
                            </image></ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="[Cho, Hermione, Luna]">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Neville = [Cho, Hermione, Luna]">
                            <font>
                               <Font name="Georgia Bold" size="18.0" />
                            </font>
@@ -122,14 +123,14 @@
                      <children>
                         <ImageView fx:id="luna" fitHeight="173.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
                            <VBox.margin>
-                              <Insets left="250.0" />
+                              <Insets left="165.0" />
                            </VBox.margin>
                            <image>
                               <Image url="@../../../images/luna.jpeg" />
                            </image></ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="[Harry, Neville, Ron]">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Luna = [Harry, Neville, Ron]">
                            <VBox.margin>
-                              <Insets left="250.0" />
+                              <Insets left="165.0" />
                            </VBox.margin>
                            <font>
                               <Font name="Georgia Bold" size="18.0" />
@@ -146,6 +147,9 @@
                </VBox.margin>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="100.0" />
+         </BorderPane.margin>
       </VBox>
    </center>
    <top>
@@ -156,7 +160,7 @@
                   <Font name="Georgia Bold Italic" size="36.0" />
                </font>
                <HBox.margin>
-                  <Insets left="120.0" top="45.0" />
+                  <Insets left="120.0" top="10.0" />
                </HBox.margin>
             </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FOLLOWERS">
@@ -164,7 +168,7 @@
                   <Font name="Georgia Bold Italic" size="36.0" />
                </font>
                <HBox.margin>
-                  <Insets left="260.0" top="45.0" />
+                  <Insets left="260.0" top="10.0" />
                </HBox.margin>
             </Text>
          </children>
